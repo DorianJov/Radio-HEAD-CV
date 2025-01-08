@@ -37,9 +37,7 @@ playBtn.addEventListener('click', () => {
         drawVisualizer();
     }
 
-    audio.src = "https://radiocvtest.ice.infomaniak.ch/radiocvtest-128.mp3";
-    audio.load();
-
+    audio.load(); // Ensures the audio is ready to play
     audio.addEventListener('canplay', () => {
         loader.style.display = 'none';
         audio.play().then(() => {
