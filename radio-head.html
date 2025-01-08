@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RadioHEAD - Live Broadcast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chat.css">
+
+</head>
+<body>
+    <header>
+        <h1>RadioHEAD - Live Broadcast</h1>
+    </header>
+
+    <div class="container">
+        <div class="marquee">
+            <h1>Welcome to RadioHEAD Live Broadcast</h1>
+            <h1>Welcome to RadioHEAD Live Broadcast</h1>
+        </div>
+
+        <div class="player-container">
+            <div class="custom-player">
+                <div class="loader-container">
+                    <div class="loader"></div>
+                    <button class="play-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+                </div>
+                <button class="pause-btn" style="display: none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                </button>
+            </div>
+            <audio id="audio-player" controls crossorigin="anonymous">
+                <source src="https://cvpo2025.ice.infomaniak.ch/cvpo2025-128.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+        <canvas id="visualizer"></canvas>
+    </div>
+
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="char-counter">0/250</div>
+        <input type="text" id="chat-input" placeholder="Type your message">
+        
+        
+    </div>
+    
+    
+    <script type="module">
+        import { sendMessage } from "./chat.js";
+    
+        
+        const chatInput = document.getElementById("chat-input");
+    
+        
+    </script>
+    
+
+    <footer>
+        <p>&copy; 2024 RadioHEAD. All rights reserved.</p>
+    </footer>
+    <script type="module" src="firebase.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+/* Scrollbar styling for Webkit browsers (Chrome, Safari, Edge) */
+#chat-box::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+    height: 8px; /* Set the height for horizontal scrollbars (if any) */
+}
+
+#chat-box::-webkit-scrollbar-track {
+    background: transparent; /* Transparent background for the track */
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+    background: white; /* White scrollbar thumb */
+    border-radius: 4px; /* Optional: Rounded edges */
+}
+
+#chat-box::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8); /* Slightly lighter on hover */
+}
+
+/* Scrollbar styling for Firefox */
+#chat-box {
+    scrollbar-color: white transparent; /* Thumb color | Track color */
+    scrollbar-width: thin; /* Make the scrollbar thinner */
+}
+
+
+/* Chat container styles */
+#chat-container {
+    width: 1000px; /* Adjust width for alignment */
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Character counter styles */
+#char-counter {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+/* Chat message box */
+#chat-box {
+    height: 200px; /* Adjust the height to make the chat box smaller vertically */
+    overflow-y: auto; /* Enable scrolling for overflowing content */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background-color: #f9f9f900; /* Optional: Set a background color */
+    border: 1px solid #cccccc00; /* Optional: Add a border for better visibility */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word; /* Fallback for older browsers */
+    word-break: break-word; /* Additional word-breaking support */
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+    line-height: 1.4; /* Add some spacing between lines for readability */
+    font-size: 1rem; /* Adjust font size as needed */
+    padding: 10px; /* Optional: Add padding for a cleaner layout */
+}
+
+/* Individual chat messages */
+.chat-message {
+    display: flex; /* Use flexbox for alignment */
+    align-items: flex-start; /* Align items at the top */
+    margin-bottom: 1px;
+    padding: 3px;
+    border-bottom: 1px solid #eeeeee00; /* Optional: Add a border for clarity */
+    color: #ffffff; /* Default text color for chat messages */
+}
+
+/* Timestamp styling */
+.timestamp {
+    font-size: 0.9em;
+    color: #888;
+    flex-shrink: 0; /* Prevent the timestamp from shrinking */
+    margin-right: 10px; /* Space between timestamp and username */
+    white-space: nowrap; /* Prevent wrapping for timestamp */
+}
+
+/* Styling for the username */
+.chat-username {
+    font-weight: bold; /* Bold font for username */
+    flex-shrink: 0; /* Prevent shrinking */
+    margin-right: 10px; /* Space between username and message */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Show ellipsis for long usernames */
+    max-width: 500px; /* Optional: Limit the maximum width */
+    display: inline-block; /* Proper alignment in flexbox */
+}
+
+/* Chat content styling */
+.chat-content {
+    flex-grow: 1; /* Allow the message content to take up the remaining space */
+    overflow-wrap: break-word; /* Break long words */
+    word-wrap: break-word; /* Fallback for older browsers */
+    word-break: break-word; /* Additional word-breaking support */
+    white-space: pre-wrap; /* Preserve spaces and line breaks */
+}
+
+/* Input field styles */
+#chat-input {
+    width: calc(100% - 20px);
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+/* Send button (can be removed if not used) */
+#send-button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background: #0056b3;
+}

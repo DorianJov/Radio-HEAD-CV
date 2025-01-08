@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        #login-panel, #admin-panel {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button.delete {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        button.delete:hover {
+            background-color: #c0392b;
+        }
+
+        button.toggle {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        button.toggle:hover {
+            background-color: #2980b9;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button.login {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+
+        button.login:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-panel">
+        <h1>Admin Login</h1>
+        <input type="email" id="admin-email" placeholder="Enter Admin Email">
+        <input type="password" id="admin-password" placeholder="Enter Admin Password">
+        <button id="login-button" class="login">Login</button>
+    </div>
+    
+
+    <div id="admin-panel" style="display: none;">
+        <h1>Admin Panel</h1>
+        <button id="delete-messages" class="delete">Delete All Chat Messages</button>
+        <button id="toggle-chat" class="toggle">Close Chat</button>
+    </div>
+
+    <script type="module">
+        import { getDatabase, ref, remove, set, get } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-database.js";
+        import { app } from "./firebase.js";
+
+        const db = getDatabase(app, "https://publicradiochat-default-rtdb.europe-west1.firebasedatabase.app");
+
+
+        // Simple password check
+        const ADMIN_PASSWORD = "admin123"; // Change this to your desired password
+        const loginPanel = document.getElementById("login-panel");
+        const adminPanel = document.getElementById("admin-panel");
+        const loginButton = document.getElementById("login-button");
+
+        loginButton.addEventListener("click", () => {
+            const enteredPassword = document.getElementById("admin-password").value;
+            if (enteredPassword === ADMIN_PASSWORD) {
+                loginPanel.style.display = "none";
+                adminPanel.style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        });
+
+        // References
+        const chatRef = ref(db, "public_chat");
+        const chatStatusRef = ref(db, "chat_status");
+
+        // Delete all chat messages
+document.getElementById("delete-messages").addEventListener("click", () => {
+    if (confirm("Are you sure you want to delete all chat messages? This action cannot be undone.")) {
+        remove(chatRef)
+            .then(() => {
+                alert("All chat messages have been deleted.");
+            })
+            .catch((error) => {
+                console.error("Error deleting messages:", error);
+                alert(`Error deleting messages: ${error.message}`);
+            });
+    }
+});
+
+
+        // Toggle chat status
+        const toggleChatButton = document.getElementById("toggle-chat");
+
+        const updateButtonLabel = (status) => {
+            toggleChatButton.textContent = status ? "Close Chat" : "Open Chat";
+        };
+
+        // Fetch current status
+        get(chatStatusRef).then((snapshot) => {
+            if (snapshot.exists()) {
+                const status = snapshot.val();
+                updateButtonLabel(status);
+            } else {
+                set(chatStatusRef, true); // Default to "Open Chat"
+                updateButtonLabel(true);
+            }
+        });
+
+        toggleChatButton.addEventListener("click", () => {
+            get(chatStatusRef).then((snapshot) => {
+                const currentStatus = snapshot.val();
+                const newStatus = !currentStatus;
+                set(chatStatusRef, newStatus).then(() => {
+                    updateButtonLabel(newStatus);
+                    alert(`Chat is now ${newStatus ? "open" : "closed"}.`);
+                }).catch((error) => {
+                    alert(`Error updating chat status: ${error.message}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
