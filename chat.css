@@ -24,24 +24,23 @@
 }
 
 
-/* Chat container styles */
-#chat-container {
-    width: 1000px; /* Adjust width for alignment */
-    margin-top: 20px;
-    font-family: Arial, sans-serif;
-}
+/* Chat container styles 
+ #chat-container {
+     width: 1000px; Adjust width for alignment 
+     margin-top: 20px; 
+} */
 
 /* Character counter styles */
 #char-counter {
     margin: 5px 0;
-    font-size: 0.9rem;
+    font-size: 1.5rem;
     text-align: center;
     color: rgb(255, 255, 255);
 }
 
 /* Chat message box */
 #chat-box {
-    height: 200px; /* Adjust the height to make the chat box smaller vertically */
+    height: 300px; /* Adjust the height to make the chat box smaller vertically */
     overflow-y: auto; /* Enable scrolling for overflowing content */
     overflow-x: hidden; /* Prevent horizontal scrolling */
     background-color: #f9f9f900; /* Optional: Set a background color */
@@ -52,7 +51,7 @@
     word-break: break-word; /* Additional word-breaking support */
     white-space: pre-wrap; /* Preserve spaces and line breaks */
     line-height: 1.4; /* Add some spacing between lines for readability */
-    font-size: 1rem; /* Adjust font size as needed */
+    font-size: 1.4rem; /* Adjust font size as needed */
     padding: 10px; /* Optional: Add padding for a cleaner layout */
 }
 
@@ -63,13 +62,13 @@
     margin-bottom: 1px;
     padding: 3px;
     border-bottom: 1px solid #eeeeee00; /* Optional: Add a border for clarity */
-    color: #ffffff; /* Default text color for chat messages */
+    color: #222a2a; /* Default text color for chat messages */
 }
 
 /* Timestamp styling */
 .timestamp {
-    font-size: 0.9em;
-    color: #888;
+    font-size: 1em;
+    color: #ed4319;
     flex-shrink: 0; /* Prevent the timestamp from shrinking */
     margin-right: 10px; /* Space between timestamp and username */
     white-space: nowrap; /* Prevent wrapping for timestamp */
@@ -99,7 +98,7 @@
 /* Input field styles */
 #chat-input {
     width: calc(100% - 20px);
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 5px;
     border: 1px solid #000000;
     border-radius: 5px;
@@ -119,3 +118,17 @@
 #send-button:hover {
     background: #0056b3;
 }
+
+/* cela aparait que dans les version d'ordinateur*/
+@media screen and (min-width:1000px){
+    #char-counter {
+        font-size: 0.9rem;
+    }
+    .timestamp {
+        font-size: 0.9em;
+    }
+    #chat-box {
+        font-size: 1em;
+    }
+    
+  }
