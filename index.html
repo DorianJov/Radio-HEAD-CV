@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset='utf-8'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-   <!-- typo h2 -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+15&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lilita+One&family=Oxygen:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <!-- typo h2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+15&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lilita+One&family=Oxygen:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <title>RadioHEAD - Live Broadcast</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="chat.css">
 
 </head>
+
 <body>
     <header>
         <div class="inner">
@@ -27,13 +35,14 @@
                         <div class="loader"></div>
                         <button class="play-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
+                                <path d="M8 5v14l11-7z" />
                             </svg>
                         </button>
+
                     </div>
                     <button class="pause-btn" style="display: none;">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                         </svg>
                     </button>
                 </div>
@@ -47,118 +56,112 @@
 
     <div class="container">
         <div class="marquee">
-            <h1>Bienvenue à la RadioHEAD - Journée des portes ouvertes</h1>
-            <h1>Bienvenue à la RadioHEAD - Journée des portes ouvertes</h1>
+            <h1>WebRadio des étudiant·e·x·s de la CV - OFFLINE</h1>
+            <h1>WebRadio des étudiant·e·x·s de la CV - OFFLINE</h1>
         </div>
-        <canvas id="visualizer"></canvas>
+
     </div>
+
+    <!-- Rediffusions-->
+    <div class="inner liensUtile">
+
+        <h2 class="Redifs">WebRadio étudiant·e·x·s <br> Portes Ouvertes 2025-2026</h2>
+
+        <!-- <a> Rediffusions WebRadio 2025/2026 </a> <br>-->
+        <!-- <a href="https://www.admissions-head.ch/open-day/programme">Programme portes ouvertes</a>-->
+        <div class="container">
+
+
+            <!-- Sélecteur de fichiers -->
+            <select id="audioSelector" onchange="changeAudio()">
+                <option value="">Sélectionnez une rediffusion</option>
+                <option value="Redifs/2025/00_lancement_de_RadioHEAD_CV.mp3">2025 - Lancement WebRadio</option>
+                <option value="Redifs/2025/01_Opportunités_HEAD.mp3">2025 - Opportunités à la HEAD</option>
+                <option value="Redifs/2025/02_Discussion_avec_étudiant.e.x.s_étrangers.mp3">2025 - Discussion avec les
+                    étudiant.e.x.s étrangers</option>
+                <option value="Redifs/2025/03_Interview_Alumni_LaMonnaie.mp3">2025 - Interview Alumni: LaMonnaie
+                </option>
+                <option value="Redifs/2025/04_Conseil_Portfolio.mp3">2025 - Conseils Portfolio</option>
+                <option value="Redifs/2025/05_Interview_Overshoot.mp3">2025 - Interview Collectif étudiant.e.x.s:
+                    Overshoot</option>
+                <option value="Redifs/2026/00_Interview_Alumni_Eupholie.mp3">2026 - Interview Alumni: Eupholie</option>
+                <option value="Redifs/2026/01_Interview_Alumnis_BestiolesGames.mp3">2026 - Interview Alumnis:
+                    BestiolesGames</option>
+            </select>
+
+            <!-- Lecteur audio -->
+            <audio id="audioPlayer" controls controlsList="nodownload" style="width: 100%; margin: 10px 0;">
+                <source id="audioSource" src="" type="audio/mpeg">
+                Votre navigateur ne supporte pas l'élément audio.
+            </audio>
+
+            <script>
+                function changeAudio() {
+                    const selector = document.getElementById('audioSelector');
+                    const audioPlayer = document.getElementById('audioPlayer');
+                    const audioSource = document.getElementById('audioSource');
+
+                    const selectedFile = selector.value;
+                    if (selectedFile) {
+                        audioSource.src = selectedFile;
+                        audioPlayer.load();
+                        audioPlayer.play().catch(e => console.log("Lecture automatique bloquée par le navigateur."));
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+
 
     <!-- container contenant le chat et le programme -->
 
     <div class="container-important inner">
         <div id="chat-container">
-            <h2>Une question ou un commentaire ? <br> Partage ton avis avec nous!</h2>
+            <h2>Une question ou un commentaire? <br> Partage ton avis avec nous!</h2>
             <div id="chat-box"></div>
             <div id="char-counter">0/250</div>
             <input type="text" id="chat-input" placeholder="Type your message">
         </div>
 
-        <section id="programme"> 
+        <section id="programme">
             <div class="titre-programme">
                 <img src="images/programme.png" alt="programme">
             </div>
             <div class="articles">
                 <article>
-                    <div class="programme-hour">10H - 10h15</div>
+                    <div class="programme-hour">??</div>
                     <div class="programme-contenu">
-                        <h4>Lancement de radiohead</h4>
+                        <h3>Aucun Programme prévu</h3>
+                        <p>Coming Soon</p>
                     </div>
                 </article>
                 <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">10h15 - 11h</div>
-                    <div class="programme-contenu">
-                        <h4>Parcours avant la head</h4>
-                        <p>Quelques étudiant.e.x.s racontent leur parcours avant la HEAD</p>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">11h - 11h40</div>
-                    <div class="programme-contenu">
-                        <h4>Discussion avec des étudiant.e.x.s</h4>
-                        <p>Discussion entre étudiant.e.x.s en option Illustration et Communication visuelle et talk sur les opportunités que la HEAD nous offre</p>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">11h40 - 12h</div>
-                    <div class="programme-contenu">
-                        <h4>Échange avec d’autres sections</h4>
-                        <p>Echange avec deux étudiant.e.x.s d’art visuels et illustration</p>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">12h05 - 12h40</div>
-                    <div class="programme-contenu">
-                        <h4>Étudiant.e.x.s étrangers</h4>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">12h40 - 13h</div>
-                    <div class="programme-contenu">
-                        <h4>Pause musicale miam miam</h4>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">13h40 - ?</div>
-                    <div class="programme-contenu">
-                        <h4>Interview d’un alumni</h4>
-                        <p>Michael La Monnaie - Ilustrateur/BD</p>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">14h20 - 15h</div>
-                    <div class="programme-contenu">
-                        <h4>Conseils portfolio</h4>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">15h20 - 16h</div>
-                    <div class="programme-contenu">
-                        <h4>Interview overshoot</h4>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-                <article>
-                    <div class="programme-hour">16h - 17.30</div>
-                    <div class="programme-contenu">
-                        <h4>session questions/réponses</h4>
-                    </div>
-                </article>
-                <!-- fin d'un article -->
-            </div>
         </section>
     </div>
-    
-    
+
+
+    <!-- container contenant les liens officiels -->
+    <div class="inner liensUtile">
+        <h4>Liens utiles</h4>
+        <a href="https://www.youtube.com/@headgenevehauteecoledartet8732/streams">Transmission officielle HEAD</a> <br>
+        <a href="https://www.admissions-head.ch/open-day/programme">Programme portes ouvertes</a>
+
+    </div>
+
+
     <script type="module">
         import { sendMessage } from "./chat.js";
-    
-        
+
+
         const chatInput = document.getElementById("chat-input");
-    
-        
+
+
     </script>
-    
+
 
     <footer>
-        
+
     </footer>
     <script type="module" src="firebase.js"></script>
     <script src="script.js"></script>
